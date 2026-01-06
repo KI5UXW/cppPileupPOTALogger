@@ -4,5 +4,7 @@
 #include <string>
 
 std::vector<std::string> getActivationData();
+std::vector<std::string> getContactData();
+std::string initializeFilename();
 
 #endif

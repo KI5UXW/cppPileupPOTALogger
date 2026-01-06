@@ -1,12 +1,14 @@
 #include <iostream>
 #include <string>
 #include <vector>
+#include <fstream>
 #include "functions.h"
 
 int main(){
     std::cout<<"UXW-CPPL"<<std::endl;
     std::cout<<"KI5UXW's C++ Pileup POTA Logger"<<std::endl;
-    getActivationData();
+    std::string workingFilename = initializeFilename();
+    std::vector<std::string> activationData = getActivationData();
     return 0;
 }
 
@@ -63,6 +65,37 @@ std::vector<std::string> getActivationData(){
     for (long unsigned int n = 0; n < activData.size(); n++){
         std::cout<< activData.at(n)<<" ";
     }
+
     return activData;
 
+}
+
+std::vector<std::string> getContactData(){
+    std::vector<std::string> contactData;
+
+    std::cout<<"Callsign? "<<std::endl;
+    std::string inputData;
+    std::getline(std::cin, inputData);
+    contactData.push_back(inputData);
+
+    std::cout<<"UTC Time?"<<std::endl;
+    std::getline(std::cin, inputData);
+    contactData.push_back(inputData);
+
+    std::cout<<"Signal Report Sent? "<<std::endl;
+    std::getline(std::cin, inputData);
+    contactData.push_back(inputData);
+
+    std::cout<<"Signal Report Recieved?"<<std::endl;
+    std::getline(std::cin, inputData);
+    contactData.push_back(inputData);
+    return contactData;
+}
+
+std::string initializeFilename(){
+    std::string inputData;
+    std::getline(std::cin, inputData);
+    inputData.append(".adi");
+    std::cout<<inputData<<std::endl;
+    return inputData;
 }
