@@ -57,5 +57,5 @@ std::vector<std::string> getActivationData(){
         std::cout<< activData[n]<<" ";
     }
     return activData;
-    //Test.
+    //Testing here.
 }
